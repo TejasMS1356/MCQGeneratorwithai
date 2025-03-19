@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document Processor</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>📄 Document Processor</h1>
+        <p>Upload a PDF, DOCX, or TXT file to generate summary and MCQs</p>
+
+        {% with messages = get_flashed_messages(with_categories=true) %} {% if messages %} {% for category, message in messages %}
+        <div class="alert alert-{{ category }}">{{ message }}</div>
+        {% endfor %} {% endif %} {% endwith %}
+
+        <form method="post" enctype="multipart/form-data">
+            <div class="file-input">
+                <input type="file" name="file" id="file" required>
+                <label for="file">Choose file...</label>
+            </div>
+            <button type="submit" class="btn">Process File</button>
+        </form>
+    </div>
+</body>
+
+</html>

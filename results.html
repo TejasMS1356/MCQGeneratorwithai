@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Processing Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+
+<body>
+    <div class="container">
+        <h1>🔍 Processing Results</h1>
+        <div class="download-section">
+            <form method="post" action="/download">
+                <input type="hidden" name="summary" value="{{ summary }}">
+                <input type="hidden" name="mcqs" value="{{ mcqs }}">
+                <input type="hidden" name="original_filename" value="{{ original_filename }}">
+
+                <div class="format-selector">
+                    <label for="output_format">Download as:</label>
+                    <select name="output_format" id="output_format">
+                        <option value="pdf">PDF</option>
+                        <option value="docx">Word Document</option>
+                        <option value="csv">CSV</option>
+                    </select>
+                    <button type="submit" class="btn">Download Results</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="results">
+            <section class="summary">
+                <h2>📝 Summary</h2>
+                <div class="content">{{ summary }}</div>
+            </section>
+
+            <section class="mcqs">
+                <h2>❓ Multiple Choice Questions</h2>
+                <pre>{{ mcqs }}</pre>
+            </section>
+        </div>
+    </div>
+</body>
+
+</html>
