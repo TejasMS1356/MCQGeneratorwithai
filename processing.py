@@ -9,7 +9,7 @@ from fpdf import FPDF
 logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
-GOOGLE_API_KEY = "AIzaSyDFpefCyBiSR59qtD2UVnP9WIjT7fdhF3M"  # Replace with your API key
+GOOGLE_API_KEY =   # Replace with your API key
 genai.configure(api_key=GOOGLE_API_KEY)
 MODEL_NAME = "models/gemini-1.5-pro-latest"
 
